@@ -1,77 +1,643 @@
 <!DOCTYPE html>
-
 <html lang="vi">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="AI Safety - Tìm hiểu về an toàn, bảo mật và các rủi ro của hệ thống AI."
+    >
 
     <title>AI Safety</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
-<script src="script.js"></script>
+
+
 <body>
 
-    <h1>AI Safety</h1>
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-    <p>
-        Tìm hiểu những rủi ro và nguyên tắc
-        để xây dựng hệ thống AI an toàn hơn.
-    </p>
+    <header class="header">
 
+        <nav class="navbar">
 
-    <h2>AI Safety là gì?</h2>
-
-    <p>
-        AI Safety tập trung vào việc giúp hệ thống AI
-        hoạt động an toàn, đáng tin cậy và hạn chế
-        những hành vi ngoài dự kiến.
-    </p>
+            <a href="#home" class="logo">
+                AI Safety
+            </a>
 
 
-    <h2>Các vấn đề quan trọng</h2>
+            <button
+                id="menu-button"
+                class="menu-button"
+                aria-label="Mở menu"
+            >
+                ☰
+            </button>
 
 
-    <div class="cards">
+            <div id="nav-links" class="nav-links">
 
-    <div class="card">
+                <a href="#home">Home</a>
 
-        <h3>Prompt Injection</h3>
+                <a href="#about">About</a>
 
-        <p>
-            Thao túng input để khiến AI
-            thực hiện hành vi ngoài dự kiến.
+                <a href="#topics">Topics</a>
+
+                <a href="#faq">FAQ</a>
+
+            </div>
+
+
+            <button
+                id="theme-button"
+                class="theme-button"
+                aria-label="Đổi giao diện"
+            >
+                🌙
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section id="home" class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    UNDERSTANDING AI RISK
+                </p>
+
+                <h1>
+                    Building
+                    <span>Safer AI</span>
+                </h1>
+
+                <p class="hero-description">
+                    Tìm hiểu những rủi ro, cơ chế và nguyên tắc
+                    giúp xây dựng các hệ thống AI an toàn,
+                    bảo mật và đáng tin cậy hơn.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#topics" class="button primary">
+                        Explore Topics
+                    </a>
+
+                    <a href="#about" class="button secondary">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section id="about" class="section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    ABOUT
+                </p>
+
+                <h2>
+                    AI Safety là gì?
+                </h2>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div>
+
+                    <p class="large-text">
+                        AI Safety tập trung vào việc nghiên cứu
+                        và giảm thiểu những rủi ro có thể xảy ra
+                        khi xây dựng và sử dụng các hệ thống AI.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <p>
+                        Một hệ thống AI không chỉ cần tạo ra
+                        kết quả chính xác. Nó còn cần hoạt động
+                        trong những giới hạn được thiết kế,
+                        bảo vệ dữ liệu và phản ứng phù hợp
+                        trước những input không mong muốn.
+                    </p>
+
+                    <p>
+                        Vì vậy AI Safety liên quan đến nhiều
+                        tầng khác nhau: model, application,
+                        infrastructure, security và con người.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             TOPICS
+        ========================== -->
+
+        <section id="topics" class="section topics-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    TOPICS
+                </p>
+
+                <h2>
+                    Những vấn đề quan trọng
+                </h2>
+
+                <p>
+                    Một số chủ đề cơ bản khi tìm hiểu về
+                    AI Safety và AI Security.
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+
+                <article class="card">
+
+                    <div class="card-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Prompt Injection
+                    </h3>
+
+                    <p>
+                        Các kỹ thuật thao túng input khiến
+                        hệ thống AI thực hiện hành vi ngoài
+                        mục đích ban đầu.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        Learn more →
+                    </a>
+
+                </article>
+
+
+
+                <article class="card">
+
+                    <div class="card-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Privacy
+                    </h3>
+
+                    <p>
+                        Bảo vệ dữ liệu người dùng và hạn chế
+                        nguy cơ hệ thống AI làm lộ thông tin
+                        nhạy cảm.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        Learn more →
+                    </a>
+
+                </article>
+
+
+
+                <article class="card">
+
+                    <div class="card-number">
+                        03
+                    </div>
+
+                    <h3>
+                        AI Security
+                    </h3>
+
+                    <p>
+                        Bảo vệ model, API, infrastructure
+                        và các thành phần xung quanh hệ thống AI.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        Learn more →
+                    </a>
+
+                </article>
+
+
+
+                <article class="card">
+
+                    <div class="card-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Model Misuse
+                    </h3>
+
+                    <p>
+                        Nghiên cứu các trường hợp model bị
+                        sử dụng theo những cách ngoài mục đích
+                        thiết kế.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        Learn more →
+                    </a>
+
+                </article>
+
+
+
+                <article class="card">
+
+                    <div class="card-number">
+                        05
+                    </div>
+
+                    <h3>
+                        AI Agents
+                    </h3>
+
+                    <p>
+                        Khi AI có khả năng sử dụng tools,
+                        truy cập dữ liệu và thực hiện hành động,
+                        phạm vi rủi ro cũng thay đổi.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        Learn more →
+                    </a>
+
+                </article>
+
+
+
+                <article class="card">
+
+                    <div class="card-number">
+                        06
+                    </div>
+
+                    <h3>
+                        Reliability
+                    </h3>
+
+                    <p>
+                        Đảm bảo hệ thống hoạt động ổn định,
+                        có thể dự đoán và xử lý lỗi một cách
+                        phù hợp.
+                    </p>
+
+                    <a href="#" class="card-link">
+                        Learn more →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PRINCIPLES
+        ========================== -->
+
+        <section class="section principles-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    PRINCIPLES
+                </p>
+
+                <h2>
+                    Một hệ thống AI an toàn cần gì?
+                </h2>
+
+            </div>
+
+
+            <div class="principles">
+
+
+                <div class="principle">
+
+                    <strong>01</strong>
+
+                    <div>
+
+                        <h3>
+                            Least Privilege
+                        </h3>
+
+                        <p>
+                            Chỉ cấp cho hệ thống những quyền
+                            thực sự cần thiết.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="principle">
+
+                    <strong>02</strong>
+
+                    <div>
+
+                        <h3>
+                            Defense in Depth
+                        </h3>
+
+                        <p>
+                            Không phụ thuộc vào một lớp bảo vệ duy nhất.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="principle">
+
+                    <strong>03</strong>
+
+                    <div>
+
+                        <h3>
+                            Monitoring
+                        </h3>
+
+                        <p>
+                            Theo dõi hệ thống để phát hiện
+                            hành vi bất thường và lỗi.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="principle">
+
+                    <strong>04</strong>
+
+                    <div>
+
+                        <h3>
+                            Human Oversight
+                        </h3>
+
+                        <p>
+                            Những hành động quan trọng cần có
+                            cơ chế kiểm soát phù hợp.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             FAQ
+        ========================== -->
+
+        <section id="faq" class="section faq-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    FAQ
+                </p>
+
+                <h2>
+                    Frequently Asked Questions
+                </h2>
+
+            </div>
+
+
+            <div class="faq-list">
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        AI Safety có giống AI Security không?
+
+                        <span>+</span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Hai lĩnh vực có phần giao nhau nhưng
+                            không hoàn toàn giống nhau. AI Security
+                            tập trung nhiều vào việc bảo vệ hệ thống
+                            trước các mối đe dọa, trong khi AI Safety
+                            có phạm vi rộng hơn và còn quan tâm đến
+                            hành vi, độ tin cậy và các rủi ro của hệ thống.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        Prompt Injection là gì?
+
+                        <span>+</span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Prompt Injection là một nhóm kỹ thuật
+                            trong đó input được thiết kế để tác động
+                            đến cách hệ thống AI xử lý instruction
+                            hoặc dữ liệu đầu vào.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        AI Agent có rủi ro gì?
+
+                        <span>+</span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Khi một AI agent có quyền gọi API,
+                            đọc dữ liệu hoặc thực hiện hành động,
+                            tác động của một lỗi hoặc input độc hại
+                            có thể vượt ra ngoài phạm vi của model.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="cta">
+
+            <div>
+
+                <p class="eyebrow">
+                    KEEP LEARNING
+                </p>
+
+                <h2>
+                    AI Safety bắt đầu từ việc hiểu hệ thống.
+                </h2>
+
+                <p>
+                    Hãy hiểu cách AI hoạt động trước khi
+                    tìm cách bảo vệ nó.
+                </p>
+
+            </div>
+
+
+            <a href="#home" class="button primary">
+                Back to top ↑
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div>
+
+            <h3>
+                AI Safety
+            </h3>
+
+            <p>
+                A learning project about AI Safety,
+                Security and reliable AI systems.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#topics">Topics</a>
+
+            <a href="#faq">FAQ</a>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 AI Safety Learning Project
         </p>
 
-    </div>
+    </footer>
 
 
-    <div class="card">
 
-        <h3>Privacy</h3>
-
-        <p>
-            Bảo vệ dữ liệu và hạn chế
-            việc AI làm lộ thông tin.
-        </p>
-
-    </div>
-
-
-    <div class="card">
-
-        <h3>AI Abuse</h3>
-
-        <p>
-            Xem xét nguy cơ hệ thống AI
-            bị sử dụng sai mục đích.
-        </p>
-
-    </div>
-
-</div>
-<button onclick="showMessage()">
-    Tìm hiểu thêm
-</button>
+    <script src="script.js"></script>
 
 </body>
 
