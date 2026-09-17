@@ -1,644 +1,177 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="AI Safety - Tìm hiểu về an toàn, bảo mật và các rủi ro của hệ thống AI."
-    >
-
-    <title>AI Safety</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SafeLayer là cẩm nang tương tác giúp người mới hiểu các rủi ro và nguyên tắc xây dựng hệ thống AI an toàn.">
+    <meta name="theme-color" content="#07111f">
+    <meta property="og:title" content="SafeLayer — AI Safety Field Guide">
+    <meta property="og:description" content="Hiểu rủi ro. Thiết kế phòng thủ. Vận hành AI có trách nhiệm.">
+    <meta property="og:type" content="website">
+    <title>SafeLayer — AI Safety Field Guide</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        document.documentElement.classList.add('js');
+        try {
+            const savedTheme = localStorage.getItem('safelayer-theme');
+            if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                document.documentElement.dataset.theme = 'light';
+            }
+        } catch (error) {}
+    </script>
 </head>
-
-
 <body>
+    <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
-
-    <header class="header">
-
-        <nav class="navbar">
-
-            <a href="#home" class="logo">
-                AI Safety
+    <header class="site-header" id="top">
+        <nav class="nav container" aria-label="Điều hướng chính">
+            <a class="brand" href="#home" aria-label="SafeLayer - về đầu trang">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" role="img"><path d="M16 3 27 8v7c0 7.1-4.4 11.7-11 14-6.6-2.3-11-6.9-11-14V8l11-5Z"/><path d="m11.5 16 3 3 6-7"/></svg>
+                </span>
+                <span>SafeLayer</span>
             </a>
 
-
-            <button
-                id="menu-button"
-                class="menu-button"
-                aria-label="Mở menu"
-            >
-                ☰
+            <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Mở menu">
+                <span></span><span></span><span></span>
             </button>
 
-
-            <div id="nav-links" class="nav-links">
-
-                <a href="#home">Home</a>
-
-                <a href="#about">About</a>
-
-                <a href="#topics">Topics</a>
-
-                <a href="#faq">FAQ</a>
-
+            <div class="nav-links" id="nav-links">
+                <a href="#risks">Rủi ro</a><a href="#topics">Chủ đề</a><a href="#playbook">Quy trình</a><a href="#checklist">Checklist</a><a href="#resources">Tài nguyên</a>
             </div>
 
-
-            <button
-                id="theme-button"
-                class="theme-button"
-                aria-label="Đổi giao diện"
-            >
-                🌙
+            <button class="theme-toggle icon-button" type="button" aria-label="Chuyển sang giao diện sáng">
+                <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/></svg>
+                <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
             </button>
-
         </nav>
-
     </header>
 
-
-
-    <!-- =========================
-         MAIN
-    ========================== -->
-
-    <main>
-
-
-        <!-- =========================
-             HERO
-        ========================== -->
-
-        <section id="home" class="hero">
-
-            <div class="hero-content">
-
-                <p class="eyebrow">
-                    UNDERSTANDING AI RISK
-                </p>
-
-                <h1>
-                    Building
-                    <span>Safer AI</span>
-                </h1>
-
-                <p class="hero-description">
-                    Tìm hiểu những rủi ro, cơ chế và nguyên tắc
-                    giúp xây dựng các hệ thống AI an toàn,
-                    bảo mật và đáng tin cậy hơn.
-                </p>
-
-
-                <div class="hero-buttons">
-
-                    <a href="#topics" class="button primary">
-                        Explore Topics
-                    </a>
-
-                    <a href="#about" class="button secondary">
-                        Learn More
-                    </a>
-
+    <main id="main-content">
+        <section class="hero" id="home">
+            <div class="hero-grid container">
+                <div class="hero-copy reveal">
+                    <div class="eyebrow"><span></span> AI Safety Field Guide</div>
+                    <h1>AI mạnh hơn cần một <em>lớp an toàn</em> tốt hơn.</h1>
+                    <p class="hero-lead">Một cẩm nang ngắn gọn dành cho người xây dựng sản phẩm AI: nhận diện rủi ro, thiết kế kiểm soát và giữ con người trong vòng quyết định.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#topics">Khám phá rủi ro <span aria-hidden="true">↗</span></a>
+                        <a class="button button-ghost" href="#checklist">Tự đánh giá hệ thống</a>
+                    </div>
+                    <div class="hero-note"><span class="pulse-dot" aria-hidden="true"></span>Không cần tài khoản · Không thu thập dữ liệu · Chạy ngay trên trình duyệt</div>
                 </div>
 
+                <div class="system-card reveal" aria-label="Minh họa các lớp bảo vệ hệ thống AI">
+                    <div class="system-card-header"><span>system_overview</span><span class="status"><i></i> protected</span></div>
+                    <div class="system-core"><div class="orbit orbit-one"><span>INPUT</span></div><div class="orbit orbit-two"><span>TOOLS</span></div><div class="core"><b>AI</b><small>MODEL</small></div></div>
+                    <div class="system-metrics">
+                        <div><span>Quyền truy cập</span><strong>Tối thiểu</strong></div><div><span>Dữ liệu nhạy cảm</span><strong>Được lọc</strong></div><div><span>Hành động rủi ro</span><strong>Cần duyệt</strong></div>
+                    </div>
+                </div>
             </div>
-
+            <div class="hero-glow" aria-hidden="true"></div>
         </section>
 
+        <section class="trust-strip" aria-label="Bốn trụ cột AI đáng tin cậy"><div class="container trust-grid"><div><strong>01</strong><span>An toàn</span></div><div><strong>02</strong><span>Bảo mật</span></div><div><strong>03</strong><span>Riêng tư</span></div><div><strong>04</strong><span>Đáng tin cậy</span></div></div></section>
 
-
-        <!-- =========================
-             ABOUT
-        ========================== -->
-
-        <section id="about" class="section">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">
-                    ABOUT
-                </p>
-
-                <h2>
-                    AI Safety là gì?
-                </h2>
-
-            </div>
-
-
-            <div class="about-grid">
-
-                <div>
-
-                    <p class="large-text">
-                        AI Safety tập trung vào việc nghiên cứu
-                        và giảm thiểu những rủi ro có thể xảy ra
-                        khi xây dựng và sử dụng các hệ thống AI.
-                    </p>
-
+        <section class="section" id="risks">
+            <div class="container">
+                <div class="section-heading reveal"><div><p class="section-kicker">Bức tranh tổng thể</p><h2>Rủi ro không chỉ nằm trong model.</h2></div><p>Một sản phẩm AI là cả một hệ thống. Lỗi có thể xuất hiện ở dữ liệu đầu vào, cách model suy luận, công cụ được kết nối hoặc quyết định cuối cùng của con người.</p></div>
+                <div class="risk-map reveal">
+                    <article class="risk-layer"><span class="risk-icon">01</span><h3>Input</h3><p>Prompt độc hại, dữ liệu sai hoặc nội dung từ nguồn không đáng tin.</p><ul><li>Prompt injection</li><li>Data poisoning</li></ul></article>
+                    <article class="risk-layer"><span class="risk-icon">02</span><h3>Model</h3><p>Model có thể bịa đặt, thiên lệch hoặc phản hồi thiếu nhất quán.</p><ul><li>Hallucination</li><li>Bias & fairness</li></ul></article>
+                    <article class="risk-layer featured"><span class="risk-icon">03</span><h3>Application</h3><p>Output không được kiểm tra có thể trở thành lệnh hoặc dữ liệu nguy hiểm.</p><ul><li>Unsafe output</li><li>Data leakage</li></ul></article>
+                    <article class="risk-layer"><span class="risk-icon">04</span><h3>Action</h3><p>Agent có quá nhiều quyền có thể gây hậu quả ngoài dự kiến.</p><ul><li>Excessive agency</li><li>Missing oversight</li></ul></article>
                 </div>
-
-
-                <div>
-
-                    <p>
-                        Một hệ thống AI không chỉ cần tạo ra
-                        kết quả chính xác. Nó còn cần hoạt động
-                        trong những giới hạn được thiết kế,
-                        bảo vệ dữ liệu và phản ứng phù hợp
-                        trước những input không mong muốn.
-                    </p>
-
-                    <p>
-                        Vì vậy AI Safety liên quan đến nhiều
-                        tầng khác nhau: model, application,
-                        infrastructure, security và con người.
-                    </p>
-
-                </div>
-
             </div>
-
         </section>
 
+        <section class="section section-panel" id="topics">
+            <div class="container">
+                <div class="section-heading reveal"><div><p class="section-kicker">Thư viện kiến thức</p><h2>Những chủ đề cốt lõi.</h2></div><p>Tìm một chủ đề hoặc lọc theo nhóm. Đây là các điểm khởi đầu thực tế khi đánh giá một ứng dụng AI.</p></div>
+                <div class="topic-toolbar reveal">
+                    <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span class="sr-only">Tìm chủ đề</span><input id="topic-search" type="search" placeholder="Tìm prompt, privacy, agent..." autocomplete="off"></label>
+                    <div class="filters" role="group" aria-label="Lọc chủ đề"><button class="filter-button active" type="button" data-filter="all">Tất cả</button><button class="filter-button" type="button" data-filter="security">Security</button><button class="filter-button" type="button" data-filter="quality">Quality</button><button class="filter-button" type="button" data-filter="governance">Governance</button></div>
+                </div>
 
-
-        <!-- =========================
-             TOPICS
-        ========================== -->
-
-        <section id="topics" class="section topics-section">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">
-                    TOPICS
-                </p>
-
-                <h2>
-                    Những vấn đề quan trọng
-                </h2>
-
-                <p>
-                    Một số chủ đề cơ bản khi tìm hiểu về
-                    AI Safety và AI Security.
-                </p>
-
+                <div class="topic-grid" id="topic-grid">
+                    <article class="topic-card reveal" data-category="security" data-search="prompt injection chỉ dẫn độc hại input"><div class="topic-card-top"><span>01</span><span class="tag security">Security</span></div><h3>Prompt Injection</h3><p>Input cố tình làm lệch chỉ dẫn ban đầu, trực tiếp từ người dùng hoặc gián tiếp qua tài liệu và website.</p><div class="topic-defense"><b>Phòng thủ:</b> tách dữ liệu khỏi chỉ dẫn, giới hạn quyền và xác nhận hành động.</div></article>
+                    <article class="topic-card reveal" data-category="security" data-search="sensitive data disclosure privacy rò rỉ dữ liệu riêng tư"><div class="topic-card-top"><span>02</span><span class="tag security">Security</span></div><h3>Rò rỉ dữ liệu</h3><p>Thông tin cá nhân, khóa bí mật hoặc dữ liệu nội bộ xuất hiện trong prompt, log hay câu trả lời.</p><div class="topic-defense"><b>Phòng thủ:</b> phân loại, che dữ liệu và áp dụng thời hạn lưu trữ.</div></article>
+                    <article class="topic-card reveal" data-category="quality" data-search="hallucination bịa đặt sai sự thật độ chính xác"><div class="topic-card-top"><span>03</span><span class="tag quality">Quality</span></div><h3>Hallucination</h3><p>Model tạo câu trả lời nghe hợp lý nhưng thiếu căn cứ, sai dữ kiện hoặc trích dẫn không tồn tại.</p><div class="topic-defense"><b>Phòng thủ:</b> grounding, dẫn nguồn, ngưỡng tin cậy và kiểm chứng.</div></article>
+                    <article class="topic-card reveal" data-category="quality" data-search="bias fairness thiên lệch công bằng đánh giá"><div class="topic-card-top"><span>04</span><span class="tag quality">Quality</span></div><h3>Bias & Fairness</h3><p>Dữ liệu và cách đánh giá có thể tạo kết quả bất công cho một số nhóm người hoặc tình huống.</p><div class="topic-defense"><b>Phòng thủ:</b> test theo nhóm, phản biện dữ liệu và cơ chế khiếu nại.</div></article>
+                    <article class="topic-card reveal" data-category="security" data-search="agent excessive agency quyền truy cập tool api hành động"><div class="topic-card-top"><span>05</span><span class="tag security">Security</span></div><h3>Excessive Agency</h3><p>Agent được quyền đọc, sửa hoặc gửi quá nhiều thứ so với nhiệm vụ thực sự cần thiết.</p><div class="topic-defense"><b>Phòng thủ:</b> least privilege, sandbox và duyệt trước hành động.</div></article>
+                    <article class="topic-card reveal" data-category="governance" data-search="monitoring giám sát log incident sự cố"><div class="topic-card-top"><span>06</span><span class="tag governance">Governance</span></div><h3>Monitoring</h3><p>Không có log, chỉ số và cảnh báo thì đội ngũ khó phát hiện model xuống cấp hay bị lạm dụng.</p><div class="topic-defense"><b>Phòng thủ:</b> log có chọn lọc, cảnh báo và quy trình xử lý sự cố.</div></article>
+                    <article class="topic-card reveal" data-category="governance" data-search="human oversight con người kiểm soát trách nhiệm phê duyệt"><div class="topic-card-top"><span>07</span><span class="tag governance">Governance</span></div><h3>Human Oversight</h3><p>Quyết định có tác động cao cần người chịu trách nhiệm và có quyền dừng hoặc đảo ngược.</p><div class="topic-defense"><b>Phòng thủ:</b> phân vai rõ, escalation và nút dừng khẩn cấp.</div></article>
+                    <article class="topic-card reveal" data-category="quality" data-search="evaluation eval red team kiểm thử độ tin cậy"><div class="topic-card-top"><span>08</span><span class="tag quality">Quality</span></div><h3>Evaluation</h3><p>Cảm giác “chạy có vẻ ổn” không thay thế được bộ test đại diện cho tình huống thật và tình huống xấu.</p><div class="topic-defense"><b>Phòng thủ:</b> eval định kỳ, red team và kiểm thử hồi quy.</div></article>
+                </div>
+                <p class="empty-state" id="empty-state" hidden>Không tìm thấy chủ đề phù hợp. Hãy thử từ khóa khác.</p>
             </div>
-
-
-            <div class="cards">
-
-
-                <article class="card">
-
-                    <div class="card-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Prompt Injection
-                    </h3>
-
-                    <p>
-                        Các kỹ thuật thao túng input khiến
-                        hệ thống AI thực hiện hành vi ngoài
-                        mục đích ban đầu.
-                    </p>
-
-                    <a href="#" class="card-link">
-                        Learn more →
-                    </a>
-
-                </article>
-
-
-
-                <article class="card">
-
-                    <div class="card-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Privacy
-                    </h3>
-
-                    <p>
-                        Bảo vệ dữ liệu người dùng và hạn chế
-                        nguy cơ hệ thống AI làm lộ thông tin
-                        nhạy cảm.
-                    </p>
-
-                    <a href="#" class="card-link">
-                        Learn more →
-                    </a>
-
-                </article>
-
-
-
-                <article class="card">
-
-                    <div class="card-number">
-                        03
-                    </div>
-
-                    <h3>
-                        AI Security
-                    </h3>
-
-                    <p>
-                        Bảo vệ model, API, infrastructure
-                        và các thành phần xung quanh hệ thống AI.
-                    </p>
-
-                    <a href="#" class="card-link">
-                        Learn more →
-                    </a>
-
-                </article>
-
-
-
-                <article class="card">
-
-                    <div class="card-number">
-                        04
-                    </div>
-
-                    <h3>
-                        Model Misuse
-                    </h3>
-
-                    <p>
-                        Nghiên cứu các trường hợp model bị
-                        sử dụng theo những cách ngoài mục đích
-                        thiết kế.
-                    </p>
-
-                    <a href="#" class="card-link">
-                        Learn more →
-                    </a>
-
-                </article>
-
-
-
-                <article class="card">
-
-                    <div class="card-number">
-                        05
-                    </div>
-
-                    <h3>
-                        AI Agents
-                    </h3>
-
-                    <p>
-                        Khi AI có khả năng sử dụng tools,
-                        truy cập dữ liệu và thực hiện hành động,
-                        phạm vi rủi ro cũng thay đổi.
-                    </p>
-
-                    <a href="#" class="card-link">
-                        Learn more →
-                    </a>
-
-                </article>
-
-
-
-                <article class="card">
-
-                    <div class="card-number">
-                        06
-                    </div>
-
-                    <h3>
-                        Reliability
-                    </h3>
-
-                    <p>
-                        Đảm bảo hệ thống hoạt động ổn định,
-                        có thể dự đoán và xử lý lỗi một cách
-                        phù hợp.
-                    </p>
-
-                    <a href="#" class="card-link">
-                        Learn more →
-                    </a>
-
-                </article>
-
-            </div>
-
         </section>
 
-
-
-        <!-- =========================
-             PRINCIPLES
-        ========================== -->
-
-        <section class="section principles-section">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">
-                    PRINCIPLES
-                </p>
-
-                <h2>
-                    Một hệ thống AI an toàn cần gì?
-                </h2>
-
+        <section class="section" id="playbook">
+            <div class="container">
+                <div class="section-heading reveal"><div><p class="section-kicker">Safety by design</p><h2>Một quy trình nhỏ, lặp lại được.</h2></div><p>An toàn không phải bước kiểm tra cuối cùng. Nó bắt đầu từ lúc xác định mục đích và tiếp tục trong suốt vòng đời sản phẩm.</p></div>
+                <div class="playbook">
+                    <article class="playbook-step reveal"><span>01 / MAP</span><div><h3>Vẽ luồng hệ thống</h3><p>AI nhận dữ liệu gì, gọi công cụ nào, tạo hành động nào và ai chịu ảnh hưởng?</p></div></article>
+                    <article class="playbook-step reveal"><span>02 / MEASURE</span><div><h3>Đặt tiêu chí đo</h3><p>Định nghĩa “đủ tốt” bằng eval, test case và ngưỡng chấp nhận trước khi phát hành.</p></div></article>
+                    <article class="playbook-step reveal"><span>03 / MANAGE</span><div><h3>Giảm quyền và tác động</h3><p>Giới hạn dữ liệu, công cụ, ngân sách và yêu cầu xác nhận cho thao tác quan trọng.</p></div></article>
+                    <article class="playbook-step reveal"><span>04 / MONITOR</span><div><h3>Theo dõi và cải tiến</h3><p>Quan sát lỗi, phản hồi người dùng, xử lý sự cố và chạy lại eval sau mỗi thay đổi.</p></div></article>
+                </div>
+                <div class="decision-lab reveal">
+                    <div class="lab-copy"><p class="section-kicker">Tình huống nhanh</p><h3>Bạn sẽ cho agent quyền nào?</h3><p>Một agent hỗ trợ khách hàng cần xử lý yêu cầu hoàn tiền. Chọn thiết kế bạn cho là phù hợp.</p></div>
+                    <div class="lab-options" id="lab-options"><button type="button" data-result="unsafe"><span>A</span><div><b>Tự hoàn tiền mọi giao dịch</b><small>Nhanh, không cần phê duyệt</small></div></button><button type="button" data-result="safer"><span>B</span><div><b>Đề xuất, người duyệt giao dịch lớn</b><small>Có giới hạn tiền và audit log</small></div></button></div>
+                    <div class="lab-result" id="lab-result" role="status" aria-live="polite" hidden></div>
+                </div>
             </div>
-
-
-            <div class="principles">
-
-
-                <div class="principle">
-
-                    <strong>01</strong>
-
-                    <div>
-
-                        <h3>
-                            Least Privilege
-                        </h3>
-
-                        <p>
-                            Chỉ cấp cho hệ thống những quyền
-                            thực sự cần thiết.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="principle">
-
-                    <strong>02</strong>
-
-                    <div>
-
-                        <h3>
-                            Defense in Depth
-                        </h3>
-
-                        <p>
-                            Không phụ thuộc vào một lớp bảo vệ duy nhất.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="principle">
-
-                    <strong>03</strong>
-
-                    <div>
-
-                        <h3>
-                            Monitoring
-                        </h3>
-
-                        <p>
-                            Theo dõi hệ thống để phát hiện
-                            hành vi bất thường và lỗi.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="principle">
-
-                    <strong>04</strong>
-
-                    <div>
-
-                        <h3>
-                            Human Oversight
-                        </h3>
-
-                        <p>
-                            Những hành động quan trọng cần có
-                            cơ chế kiểm soát phù hợp.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
         </section>
 
-
-
-        <!-- =========================
-             FAQ
-        ========================== -->
-
-        <section id="faq" class="section faq-section">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">
-                    FAQ
-                </p>
-
-                <h2>
-                    Frequently Asked Questions
-                </h2>
-
+        <section class="section section-panel" id="checklist">
+            <div class="container checklist-layout">
+                <div class="checklist-intro reveal"><p class="section-kicker">Self-assessment</p><h2>Checklist trước khi phát hành.</h2><p>Đánh dấu những kiểm soát hệ thống của bạn đã có. Tiến độ được lưu ngay trong trình duyệt bằng <code>localStorage</code>, không gửi đi đâu cả.</p><div class="progress-wrap" aria-label="Tiến độ checklist"><div class="progress-label"><span>Tiến độ</span><strong id="progress-text">0 / 8</strong></div><div class="progress-track"><span id="progress-bar"></span></div></div><button class="text-button" id="reset-checklist" type="button">Đặt lại checklist</button></div>
+                <div class="checklist-card reveal" id="safety-checklist">
+                    <label><input type="checkbox" value="purpose"><span class="custom-check"></span><span><b>Mục đích và giới hạn rõ ràng</b><small>Người dùng biết AI làm gì và không làm gì.</small></span></label>
+                    <label><input type="checkbox" value="data"><span class="custom-check"></span><span><b>Dữ liệu nhạy cảm được bảo vệ</b><small>Có phân loại, masking và chính sách lưu trữ.</small></span></label>
+                    <label><input type="checkbox" value="permissions"><span class="custom-check"></span><span><b>Quyền truy cập tối thiểu</b><small>Model và tools chỉ có quyền cần cho nhiệm vụ.</small></span></label>
+                    <label><input type="checkbox" value="validation"><span class="custom-check"></span><span><b>Input và output được kiểm tra</b><small>Không dùng output AI như lệnh đáng tin mặc định.</small></span></label>
+                    <label><input type="checkbox" value="evals"><span class="custom-check"></span><span><b>Có bộ eval đại diện</b><small>Bao gồm trường hợp thường, biên và đối kháng.</small></span></label>
+                    <label><input type="checkbox" value="human"><span class="custom-check"></span><span><b>Con người duyệt tác động cao</b><small>Có người chịu trách nhiệm cho quyết định quan trọng.</small></span></label>
+                    <label><input type="checkbox" value="monitoring"><span class="custom-check"></span><span><b>Có monitoring và cảnh báo</b><small>Theo dõi chất lượng, lạm dụng và hành vi bất thường.</small></span></label>
+                    <label><input type="checkbox" value="incident"><span class="custom-check"></span><span><b>Sẵn sàng xử lý sự cố</b><small>Có cách dừng, rollback, báo cáo và rút kinh nghiệm.</small></span></label>
+                </div>
             </div>
-
-
-            <div class="faq-list">
-
-
-                <div class="faq-item">
-
-                    <button class="faq-question">
-
-                        AI Safety có giống AI Security không?
-
-                        <span>+</span>
-
-                    </button>
-
-
-                    <div class="faq-answer">
-
-                        <p>
-                            Hai lĩnh vực có phần giao nhau nhưng
-                            không hoàn toàn giống nhau. AI Security
-                            tập trung nhiều vào việc bảo vệ hệ thống
-                            trước các mối đe dọa, trong khi AI Safety
-                            có phạm vi rộng hơn và còn quan tâm đến
-                            hành vi, độ tin cậy và các rủi ro của hệ thống.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="faq-item">
-
-                    <button class="faq-question">
-
-                        Prompt Injection là gì?
-
-                        <span>+</span>
-
-                    </button>
-
-
-                    <div class="faq-answer">
-
-                        <p>
-                            Prompt Injection là một nhóm kỹ thuật
-                            trong đó input được thiết kế để tác động
-                            đến cách hệ thống AI xử lý instruction
-                            hoặc dữ liệu đầu vào.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="faq-item">
-
-                    <button class="faq-question">
-
-                        AI Agent có rủi ro gì?
-
-                        <span>+</span>
-
-                    </button>
-
-
-                    <div class="faq-answer">
-
-                        <p>
-                            Khi một AI agent có quyền gọi API,
-                            đọc dữ liệu hoặc thực hiện hành động,
-                            tác động của một lỗi hoặc input độc hại
-                            có thể vượt ra ngoài phạm vi của model.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
         </section>
 
-
-
-        <!-- =========================
-             CTA
-        ========================== -->
-
-        <section class="cta">
-
-            <div>
-
-                <p class="eyebrow">
-                    KEEP LEARNING
-                </p>
-
-                <h2>
-                    AI Safety bắt đầu từ việc hiểu hệ thống.
-                </h2>
-
-                <p>
-                    Hãy hiểu cách AI hoạt động trước khi
-                    tìm cách bảo vệ nó.
-                </p>
-
+        <section class="section" id="resources">
+            <div class="container">
+                <div class="section-heading reveal"><div><p class="section-kicker">Nguồn đáng tin cậy</p><h2>Học sâu hơn từ đâu?</h2></div><p>Ba điểm khởi đầu miễn phí từ các tổ chức chuyên môn. Liên kết mở trong tab mới.</p></div>
+                <div class="resource-grid">
+                    <a class="resource-card reveal" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer"><span class="resource-type">FRAMEWORK</span><h3>NIST AI RMF</h3><p>Khung quản trị rủi ro AI theo bốn chức năng: Govern, Map, Measure và Manage.</p><span class="resource-link">Mở tài liệu ↗</span></a>
+                    <a class="resource-card reveal" href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener noreferrer"><span class="resource-type">SECURITY</span><h3>OWASP GenAI</h3><p>Danh sách rủi ro nổi bật và hướng dẫn giảm thiểu cho ứng dụng LLM, GenAI.</p><span class="resource-link">Mở tài liệu ↗</span></a>
+                    <a class="resource-card reveal" href="https://atlas.mitre.org/" target="_blank" rel="noopener noreferrer"><span class="resource-type">KNOWLEDGE BASE</span><h3>MITRE ATLAS</h3><p>Kho chiến thuật, kỹ thuật và tình huống tấn công vào hệ thống AI.</p><span class="resource-link">Mở tài liệu ↗</span></a>
+                </div>
+                <div class="faq reveal">
+                    <div class="faq-title"><p class="section-kicker">FAQ</p><h2>Câu hỏi thường gặp.</h2></div>
+                    <div class="faq-list">
+                        <article class="faq-item"><button type="button" aria-expanded="false"><span>AI Safety và AI Security có giống nhau không?</span><i>+</i></button><div class="faq-answer"><p>Không hoàn toàn. AI Security tập trung bảo vệ hệ thống trước tấn công và truy cập trái phép. AI Safety rộng hơn, bao gồm độ tin cậy, tác động ngoài ý muốn, công bằng, giám sát và cách con người sử dụng hệ thống.</p></div></article>
+                        <article class="faq-item"><button type="button" aria-expanded="false"><span>Chỉ thêm một “safety prompt” đã đủ chưa?</span><i>+</i></button><div class="faq-answer"><p>Chưa. Prompt chỉ là một lớp. Kiểm soát quan trọng còn nằm ở phân quyền, xác thực input/output, sandbox, giới hạn công cụ, monitoring và phê duyệt của con người.</p></div></article>
+                        <article class="faq-item"><button type="button" aria-expanded="false"><span>Dự án nhỏ có cần quy trình AI Safety không?</span><i>+</i></button><div class="faq-answer"><p>Có, nhưng nên tương xứng với rủi ro. Một chatbot thử nghiệm có thể chỉ cần thông báo giới hạn và lọc dữ liệu; hệ thống liên quan tài chính, y tế hoặc hành động tự động cần kiểm soát chặt hơn nhiều.</p></div></article>
+                    </div>
+                </div>
             </div>
-
-
-            <a href="#home" class="button primary">
-                Back to top ↑
-            </a>
-
         </section>
 
-
+        <section class="final-cta"><div class="container final-cta-inner reveal"><div><p class="section-kicker">Một nguyên tắc để nhớ</p><h2>Đừng chỉ hỏi AI có thể làm gì.<br>Hãy hỏi điều gì xảy ra khi nó sai.</h2></div><a class="button button-light" href="#checklist">Kiểm tra hệ thống <span aria-hidden="true">→</span></a></div></section>
     </main>
 
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer class="footer">
-
-        <div>
-
-            <h3>
-                AI Safety
-            </h3>
-
-            <p>
-                A learning project about AI Safety,
-                Security and reliable AI systems.
-            </p>
-
+    <footer class="site-footer">
+        <div class="container footer-main">
+            <div><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3 27 8v7c0 7.1-4.4 11.7-11 14-6.6-2.3-11-6.9-11-14V8l11-5Z"/><path d="m11.5 16 3 3 6-7"/></svg></span><span>SafeLayer</span></a><p>Hiểu rủi ro. Thiết kế phòng thủ.<br>Vận hành AI có trách nhiệm.</p></div>
+            <div class="footer-nav"><strong>Khám phá</strong><a href="#risks">Bản đồ rủi ro</a><a href="#topics">Chủ đề</a><a href="#playbook">Quy trình</a><a href="#checklist">Checklist</a></div>
+            <div class="footer-nav"><strong>Tài liệu</strong><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST AI RMF ↗</a><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener noreferrer">OWASP GenAI ↗</a><a href="https://atlas.mitre.org/" target="_blank" rel="noopener noreferrer">MITRE ATLAS ↗</a></div>
         </div>
-
-
-        <div class="footer-links">
-
-            <a href="#home">Home</a>
-
-            <a href="#about">About</a>
-
-            <a href="#topics">Topics</a>
-
-            <a href="#faq">FAQ</a>
-
-        </div>
-
-
-        <p class="copyright">
-            © 2026 AI Safety Learning Project
-        </p>
-
+        <div class="container footer-bottom"><span>© <span id="current-year"></span> SafeLayer. Dự án học tập phi thương mại.</span><a href="#top">Lên đầu trang ↑</a></div>
     </footer>
-
-
-
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="script.js"></script>
-
 </body>
-
 </html>
